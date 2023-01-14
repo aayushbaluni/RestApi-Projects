@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 const _ = require('lodash');
 const express = require('express');
 const { validateUser } = require("./validation/validateUser");
-const { User } = require("./models/IUserModel");
+const { User } = require("./models/UserModel");
 
 const router = express.Router();
 
 
 
 router.post('/', async (req,res) =>{
-    const { err } = await validateUser(req.body);
+ const err= await validateUser(req.body);
     console.log(err)
     if (err) return res.status(400).send("Please enter valid Credentials.");
     else {    

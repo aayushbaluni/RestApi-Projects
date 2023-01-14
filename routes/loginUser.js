@@ -1,7 +1,7 @@
 const express = require('express');
 const _ = require('lodash');
 const { validateUser } = require("./validation/validateUser");
-const { User } = require("./models/IUserModel");
+const { User } = require("./models/UserModel");
 const jwt=require('jsonwebtoken')
 
 const router = express.Router();

@@ -5,12 +5,14 @@ const Joi = require('joi');
     const schema = Joi.object({
         name: Joi.string().min(5).required(),
         email: Joi.string().min(5).required().email(),
-        password: Joi.string().min(5).required(),
-        isAdmin: Joi.boolean().optional()
+        password: Joi.string().min(5).required()
     });
-   
-    const ans =  schema.validate(user);
-     return ans.error;
+     try {
+         const value =  schema.validate(user);
+}
+     catch (err) {
+         return err;
+ }
 }
 
 
