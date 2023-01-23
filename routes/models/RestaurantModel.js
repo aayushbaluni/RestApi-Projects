@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const Restaurants = mongoose.model("Restaurants", new mongoose.Schema({
     name: {
         type: String,
-        minlength:5
+        minlength: 5
+        , required: true
     },
     address: {
         type:String
@@ -20,15 +21,17 @@ const Restaurants = mongoose.model("Restaurants", new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        minlength:5
+        minlength: 5,
+        unique:true
     },
     password: {
         type: String,
         required: true,
-        minlength:5,
+        minlength: 5,
+        
     }
     
 }));
 
 
-module.exports = Restaurants;
+exports.Restaurants = Restaurants;

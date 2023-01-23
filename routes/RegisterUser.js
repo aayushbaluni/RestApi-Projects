@@ -13,7 +13,7 @@ router.post('/', async (req,res) =>{
     console.log(err)
     if (err) return res.status(400).send("Please enter valid Credentials.");
     else {    
-            const user = new User(_.pick(req.body,['name','email','password']));
+            const user = new User(req.body);
 
         const u = await User.findOne({ email: req.body.email });
         if(u)return res.send("Email already Exists. ")
